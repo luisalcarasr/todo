@@ -1,7 +1,9 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { TaskList } from './components'
+</script>
 
 <template>
-  <h1>To Do</h1>
+  <TaskList />
 </template>
 
 <style scoped lang="scss"></style>
