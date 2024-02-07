@@ -11,13 +11,13 @@ export const useTodoStore = defineStore('todo', {
       this.saveState()
     },
     remove(id: string) {
-      this.tasks = this.tasks.filter((task) => task.id !== id)
+      const index = this.tasks.findIndex((task) => task.id === id)
+      this.tasks.splice(index, 1)
       this.saveState()
     },
-    complete(id: string) {
-      this.tasks = this.tasks.map((task) =>
-        task.id === id ? { ...task, completed: !task.completed } : task
-      )
+    toggle(id: string) {
+      const index = this.tasks.findIndex((task) => task.id === id)
+      this.tasks[index].completed = !this.tasks[index].completed
       this.saveState()
     },
     saveState() {
